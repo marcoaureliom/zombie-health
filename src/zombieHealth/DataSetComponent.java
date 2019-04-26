@@ -1,11 +1,11 @@
-package br.unicamp.mc322.zombieHealth;
+package zombieHealth;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.unicamp.mc322.zombieHealth.interfaces.IDataSet;
+import zombieHealth.interfaces.IDataSet;
 import weka.core.Instances;
 
 public class DataSetComponent implements IDataSet {

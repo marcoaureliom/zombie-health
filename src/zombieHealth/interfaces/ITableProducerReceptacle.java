@@ -1,4 +1,4 @@
-package br.unicamp.mc322.zombieHealth.interfaces;
+package zombieHealth.interfaces;
 
 public interface ITableProducerReceptacle {
 	public void connect(ITableProducer producer);

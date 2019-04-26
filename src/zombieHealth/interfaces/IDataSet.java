@@ -1,5 +1,4 @@
-package br.unicamp.mc322.zombieHealth.interfaces;
-
+package zombieHealth.interfaces;
 public interface IDataSet extends IDataSource, ITableProducer {
 
 }

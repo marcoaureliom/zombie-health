@@ -1,4 +1,4 @@
-package br.unicamp.mc322.zombieHealth;
+package zombieHealth;
 
 import java.util.Random;
 

@@ -1,5 +1,5 @@
-package br.unicamp.mc322.zombieHealth;
-import br.unicamp.mc322.zombieHealth.interfaces.*;
+package zombieHealth;
+import zombieHealth.interfaces.*;
 
 import weka.core.Instance;
 
