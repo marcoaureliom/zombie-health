@@ -1,7 +1,6 @@
 package zombieHealth;
 import zombieHealth.interfaces.*;
 
-import weka.core.Instance;
 
 public class Doctor implements IDoctor {    
 
