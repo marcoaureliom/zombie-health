@@ -14,7 +14,7 @@ Campo | Valor
 ----- | -----
 Classe | `zombieHealth.interfaces.EvaluationNAttributes`
 Autor | `Marco Aurélio`
-Objetivo | `Probabilidade de n classificadores serem verdadeiros dado os valores de i atributos aplicados simultaneamente nos n classificadores.`
+Objetivo | Probabilidade de *n* classificadores serem verdadeiros dado os valores de *i* atributos aplicados simultaneamente nos n classificadores.
 Interface | `IEvaluationNAttributes`
 
 ~~~
@@ -39,7 +39,7 @@ Campo | Valor
 ----- | -----
 Classe | `zombieHealth.OptimizedDataSet`
 Autores | `Marco Aurélio`
-Objetivo | `Substituição de valores nas instâncias: analisa um conjunto de instâncias e realiza automaticamente substituições de valores mantendo um mínimo definido de precisão na classificação.`
+Objetivo | Substituição de valores nas instâncias: analisa um conjunto de instâncias e realiza automaticamente substituições de valores mantendo um mínimo definido de precisão na classificação.
 Interface | `IOptimizedDataSet`
 
 ~~~
@@ -56,10 +56,11 @@ public interface IOptimizedDataSet extends IDataSource, ITableProducer {
 }
 ~~~
 
+
 ## Detalhamento das Interfaces
 
 ### Interface `IEvaluationNAttributes`
-Avalia a chance de n classificadores dados os valores de i atributos.
+Avalia a chance de *n* classificadores serem verdadeiros dados os valores de *i* atributos de uma instância.
 
 Método | Objetivo
 -------| --------
@@ -83,7 +84,7 @@ Método | Objetivo
 `requestInstances` | Retorna uma matriz em que cada linha representa uma instância e cada coluna o valor do respectivo atributo (a ordem dos atributos é a mesma daquela fornecida por `requestAttributes`.
 
 ### Interface `IOptimizedDataSet`
-Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados e o otimiza, substituindo valores.
+Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados, otimiza e substitui valores.
 
 Método | Objetivo
 -------| --------
