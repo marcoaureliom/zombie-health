@@ -2,6 +2,8 @@
 
 # Equipe *Os Asdrubal*
 
+Autores:
+----
 A documentação será feita em Markdown, vide detalhes sobre ele em: https://guides.github.com/features/mastering-markdown/
 
 E mais especificamente sobre tabelas em: https://help.github.com/en/articles/organizing-information-with-tables
@@ -10,10 +12,10 @@ Segue abaixo o modelo de como deve ser documentado um componente. Tudo o que for
 
 # Componente `EvaluationNAttributes`
 
-Campo | Valor
+Item | Descrição
 ----- | -----
 Classe | `zombieHealth.interfaces.EvaluationNAttributes`
-Autor | `Marco Aurélio`
+Autor | Marco Aurélio
 Objetivo | Probabilidade de *n* classificadores serem verdadeiros dado os valores de *i* atributos aplicados simultaneamente nos n classificadores.
 Interface | `IEvaluationNAttributes`
 
@@ -35,10 +37,10 @@ public interface IEvaluationNAttributes {
 
 # Componente `OptimizedDataSet`
 
-Campo | Valor
+Item | Descrição
 ----- | -----
 Classe | `zombieHealth.OptimizedDataSet`
-Autores | `Marco Aurélio`
+Autor | Marco Aurélio
 Objetivo | Substituição de valores nas instâncias: analisa um conjunto de instâncias e realiza automaticamente substituições de valores mantendo um mínimo definido de precisão na classificação.
 Interface | `IOptimizedDataSet`
 
