@@ -35,7 +35,7 @@ public interface IEvaluationNAttributes {
 }
 ~~~
 
-# Componente `OptimizedDataSet`
+# Componente ~`OptimizedDataSet`~
 
 Item | Descrição
 ----- | -----
@@ -58,6 +58,45 @@ public interface IOptimizedDataSet extends IDataSource, ITableProducer {
 }
 ~~~
 
+# Componente `ZombieWEB`
+
+Item | Descrição
+----- | -----
+Classe | `zombieHealth.WEBZombie`
+Autor | Marco Aurélio
+Objetivo | Criar estruturas em HTML, CSS, JavaScript dos principais elementos do Zombie Health.
+Interface | `IZombieWEB`
+
+~~~
+public interface IZombieWEB {
+
+	
+	
+	public setLayout(int id);
+	public void setTitulo(String titulo);
+	***
+	public String setCSS();
+	***
+	
+	//Retorna vetor com nome das páginas
+	public String[] getPaginas();
+	public int getNumPaginas();
+	public void criePagina(String nome);
+	
+	public int crieArvore(No noRaiz, String pagina, int posicao);
+	public int crieClassificador11(String[][] liNo noRaiz);
+
+	public void optimizeAttribute(String attribute, double minAccuracy);
+	public void optimizeAllAttributes(double minAccuracy);
+	
+	public void attributeReplaceValue(String attribute, String search, String replacement);
+	public void classifiersReplaceValue(String search, String replacement);
+	public void attributeReplaceLimits(String attribute, double lessThan, double moreThan, String replacement);
+	public void classifiersReplaceLimits(double lessThan, double moreThan, String replacement);
+	public void attributesReplaceValue(String search, String replacement);
+	public void attributesReplaceLimits(double lessThan, double moreThan, String replacement);
+}
+~~~
 
 ## Detalhamento das Interfaces
 
