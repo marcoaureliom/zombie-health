@@ -8,7 +8,7 @@ Item | Descrição
 ----- | -----
 Classe | `zombieHealth.ZombieWEB`
 Autor | Marco Aurélio
-Objetivo | Criar estruturas de dados graficamente usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
+Objetivo | Criar gráficos de dados usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
 Interface | `IZombieWEB`
 
 ~~~
