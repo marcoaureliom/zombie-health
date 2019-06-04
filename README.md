@@ -55,18 +55,21 @@ IZombieWEB zW = new ZombieWEB();
 zW.setNomeArquivo("UmExemplo");
 
 zW.crieArvore("Nome da Árvore");
-zW.insiraElementoArvore("Nome da Árvore 2", -1, 1, "Raiz", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"});
-zW.insiraElementoArvore("Nome da Árvore 2", 1, 11, "Filho 1.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"});
-zW.insiraElementoArvore("Nome da Árvore 2", 11, 111, "Filho 1.1.1", null );
-zW.insiraElementoArvore("Nome da Árvore 2", 1, 12, "Filho 1.2", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"});
-zW.insiraElementoArvore("Nome da Árvore 2", 12, 121, "Filho 1.2.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4", "Talvez", "blue"});
-zW.insiraElementoArvore("Nome da Árvore 2", 121, 1211, "Filho 1.2.1.1");
-zW.insiraElementoArvore("Nome da Árvore 2", 121, 1212, "Filho 1.2.1.2");
-zW.insiraElementoArvore("Nome da Árvore 2", 121, 1213, "Filho 1.2.1.3", null);
-zW.insiraElementoArvore("Nome da Árvore 2", 12, 122, "Filho 1.2.2");
+zW.insiraElementoArvore("Nome da Árvore", -1, 1, "Raiz", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"} );
+zW.insiraElementoArvore("Nome da Árvore", 1, 11, "Filho 1.1", new String[] {"Legenda", "#5cbd79"});
+zW.insiraElementoArvore("Nome da Árvore", 11, 111, "Filho 1.1.1", null );
+zW.insiraElementoArvore("Nome da Árvore", 1, 12, "Filho 1.2", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"});
+zW.insiraElementoArvore("Nome da Árvore", 12, 121, "Filho 1.2.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4", "Talvez", "blue"});
+zW.insiraElementoArvore("Nome da Árvore", 121, 1211, "Filho 1.2.1.1");
+zW.insiraElementoArvore("Nome da Árvore", 121, 1212, "Filho 1.2.1.2");
+zW.insiraElementoArvore("Nome da Árvore", 121, 1213, "Filho 1.2.1.3", null );
+zW.insiraElementoArvore("Nome da Árvore", 12, 122, "Filho 1.2.2");
+
+zW.criePaginaHTML();
+zW.abraPagina();
 ~~~
 #### Visualização
-A árvore interage com o cursor, alterando a cor do nó e subnós.
+A árvore interage com o cursor, alterando a cor do nó e subnós. As folhas possuem a mesma cor.
 <p align="center">
   <img src="Arquivos/arvore3.png?raw=true" width="250" title="Cursor fora da árvore">
   <img src="Arquivos/arvore2.png?raw=true" width="250" title="Árvore interagindo com o cursor">
