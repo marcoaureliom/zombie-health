@@ -67,7 +67,7 @@ zW.insiraElementoArvore("Nome da Árvore 2", 12, 122, "Filho 1.2.2");
 ~~~
 #### Visualização
 <p align="center">
-  <img src="Arquivos/arvore3.png?raw=true" width="100" title="Cursor fora da árvore">
-  <img src="Arquivos/arvore2.png?raw=true" width="100" title="Árvore interagindo com o cursor">
-  <img src="Arquivos/arvore1.png?raw=true" width="100" title="Árvore interagindo com o cursor">
+  <img src="Arquivos/arvore3.png?raw=true" width="300" title="Cursor fora da árvore">
+  <img src="Arquivos/arvore2.png?raw=true" width="300" title="Árvore interagindo com o cursor">
+  <img src="Arquivos/arvore1.png?raw=true" width="300" title="Árvore interagindo com o cursor">
 </p>
