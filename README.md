@@ -67,6 +67,6 @@ zW.insiraElementoArvore("Nome da Árvore 2", 121, 1212, "Filho 1.2.1.2");
 zW.insiraElementoArvore("Nome da Árvore 2", 121, 1213, "Filho 1.2.1.3", null );
 zW.insiraElementoArvore("Nome da Árvore 2", 12, 122, "Filho 1.2.2");
 ~~~
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](Arquivos/arvore3.png?raw=true "Title")
+![Alt text](Arquivos/arvore2.png?raw=true "Title")
+![Alt text](Arquivos/arvore1.png?raw=true "Title")
