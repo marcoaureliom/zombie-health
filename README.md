@@ -2,137 +2,71 @@
 
 # Equipe *Os Asdrubal*
 
-Autores:
+Autores: Alexandre Tamaoki, Jhonatas Santos e Marco Aurélio Martins.
 ----
-A documentação será feita em Markdown, vide detalhes sobre ele em: https://guides.github.com/features/mastering-markdown/
-
-E mais especificamente sobre tabelas em: https://help.github.com/en/articles/organizing-information-with-tables
-
-Segue abaixo o modelo de como deve ser documentado um componente. Tudo o que for indicado entre `<...>` indica algo que deve ser substituído pelo indicado.
-
-# Componente `EvaluationNAttributes`
-
-Item | Descrição
------ | -----
-Classe | `zombieHealth.interfaces.EvaluationNAttributes`
-Autor | Marco Aurélio
-Objetivo | Probabilidade de *n* classificadores serem verdadeiros dado os valores de *i* atributos aplicados simultaneamente nos n classificadores.
-Interface | `IEvaluationNAttributes`
-
-~~~
-public interface IEvaluationNAttributes {
-
-    public void setInstances(String[][] instances);
-    public void setAttibutes(String[] attributes);
-    public void insertClassifierEval(String classifier);
-    public void removeClassifierEval(String classifier);
-    public void insertAttributeEval(String attribute, String value);
-    public void removeAttributeEval(String attribute);
-    public String[][] eval();
-    public String[][] evalAttribute(String attribute, String value);
-    public String[][] evalWithNewAttribute(String attribute, String value);
-
-}
-~~~
-
-# Componente ~`OptimizedDataSet`~
-
-Item | Descrição
------ | -----
-Classe | `zombieHealth.OptimizedDataSet`
-Autor | Marco Aurélio
-Objetivo | Substituição de valores nas instâncias: analisa um conjunto de instâncias e realiza automaticamente substituições de valores mantendo um mínimo definido de precisão na classificação.
-Interface | `IOptimizedDataSet`
-
-~~~
-public interface IOptimizedDataSet extends IDataSource, ITableProducer {
-	public void optimizeAttribute(String attribute, double minAccuracy);
-	public void optimizeAllAttributes(double minAccuracy);
-	
-	public void attributeReplaceValue(String attribute, String search, String replacement);
-	public void classifiersReplaceValue(String search, String replacement);
-	public void attributeReplaceLimits(String attribute, double lessThan, double moreThan, String replacement);
-	public void classifiersReplaceLimits(double lessThan, double moreThan, String replacement);
-	public void attributesReplaceValue(String search, String replacement);
-	public void attributesReplaceLimits(double lessThan, double moreThan, String replacement);
-}
-~~~
-
 # Componente `ZombieWEB`
 
 Item | Descrição
 ----- | -----
-Classe | `zombieHealth.WEBZombie`
+Classe | `zombieHealth.ZombieWEB`
 Autor | Marco Aurélio
-Objetivo | Criar estruturas em HTML, CSS, JavaScript dos principais elementos do Zombie Health.
+Objetivo | Criar estruturas de dados graficamente usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
 Interface | `IZombieWEB`
 
 ~~~
 public interface IZombieWEB {
 
+	//Métodos da criação de uma árvore:
+	public boolean crieArvore(String nomeArvore);
+	public boolean removaArvore(String nomeArvore);
+	public boolean insiraElementoArvore(String nomeArvore, int idPai, int idNovoElemento, 
+					    String textoNovoElemento);
+	public boolean insiraElementoArvore(String nomeArvore, int idPai, int idNovoElemento, 
+					    String textoNovoElemento, String[] legendasInferiores);
+	public boolean criePaginaHTML();
+	public void abraPagina();
 	
+	public void setNomeArquivo(String nomeArquivo);
+	public void setNomeSite(String nomeSite);
 	
-	public setLayout(int id);
-	public void setTitulo(String titulo);
-	***
-	public String setCSS();
-	***
-	
-	//Retorna vetor com nome das páginas
-	public String[] getPaginas();
-	public int getNumPaginas();
-	public void criePagina(String nome);
-	
-	public int crieArvore(No noRaiz, String pagina, int posicao);
-	public int crieClassificador11(String[][] liNo noRaiz);
-
-	public void optimizeAttribute(String attribute, double minAccuracy);
-	public void optimizeAllAttributes(double minAccuracy);
-	
-	public void attributeReplaceValue(String attribute, String search, String replacement);
-	public void classifiersReplaceValue(String search, String replacement);
-	public void attributeReplaceLimits(String attribute, double lessThan, double moreThan, String replacement);
-	public void classifiersReplaceLimits(double lessThan, double moreThan, String replacement);
-	public void attributesReplaceValue(String search, String replacement);
-	public void attributesReplaceLimits(double lessThan, double moreThan, String replacement);
 }
 ~~~
 
 ## Detalhamento das Interfaces
 
-### Interface `IEvaluationNAttributes`
-Avalia a chance de *n* classificadores serem verdadeiros dados os valores de *i* atributos de uma instância.
+### Interface `IZombieWEB`
+Acesso aos métodos de criação de uma página.
+(Atualmente finalizada a criação da árvore. Em breve, novas funcionalidades!)
 
 Método | Objetivo
 -------| --------
-`setInstances` | Recebe uma matriz de String com as instâncias.
-`setAttibutes` | Recebe um vetor de String com os atributos das instâncias.
-`insertClassifierEval` |  Insere na avaliação um classificador informado pelo parâmetro `classifier`.
-`removeClassifierEval` | Remove da avaliação um classificador informado pelo parâmetro `classifier`.
-`insertAttributeEval` | Insere na avaliação um atributo informado pelos parâmetros `attribute` e `value`.
-`removeAttributeEval` | Remove da avaliação um atributo informado pelo parâmetro `attribute`.
-`eval` | Retorna uma matriz de String com 2 linhas e n colunas: cada coluna o nome de um classificador e um valor relerente a probabilidade daquele classificador ser verdadeiro.
-`evalAttribute` | Recebe como parâmetro um `attribute` e um `value` e não os adiciona na avaliação posterior; retorna a chamada do método `eval` com o atributo passado por parâmetro.
-`evalWithNewAttribute` | Recebe como parâmetro um `attribute` e um `value` e os adiciona na avaliação; retorna a chamada do método `eval`.
+`crieArvore` | Recebe uma `String` com um nome de identificação de árvore e o registra.
+`removaArvore` | Recebe uma `String` com um nome de identificação de árvore e a remove.
+`insiraElementoArvore` | Insere na árvore um elemento (nó). Recebe por parâmetro o nome da árvore em que você quer inserir o elemento, o ID do elemento pai (`int`), o ID deste elemento novo (`int`), uma `String` que será o texto do elemento.
+`insiraElementoArvore` | Sobrecarga de `insiraElementoArvore`. Recebe também um vetor de legendas que ficarão na parte inferior do nó na exibição. Nesse vetor, você deve passar um valor e na posição seguinte um valor de cor de fundo (`{"Sim", "#5cbd79", "Não", "#5b87d4"}`.
+`criePaginaHTML` | Cria no diretório do programa uma página HTML se nome do arquivo já estiver definido.
+`abraPagina` | Abre no navegador a página criada.
+`setNomeArquivo` | Recebe uma String com um nome de identificação do arquivo e o registra.
+`setNomeSite` | Recebe uma String com um nome para o site e o registra.
 
+## Exemplos de Implementações
 
-### Interface `ITableProducer`
-Interface provida por qualquer fonte de dados que os forneça na forma de uma tabela.
+### Interface `IZombieWEB`
+~~~java
+ZombieWEB zW = new ZombieWEB();
+zW.setNomeArquivo("UmExemplo");
 
-Método | Objetivo
--------| --------
-`requestAttributes` | Retorna um vetor com o nome de todos os atributos (colunas) da tabela.
-`requestInstances` | Retorna uma matriz em que cada linha representa uma instância e cada coluna o valor do respectivo atributo (a ordem dos atributos é a mesma daquela fornecida por `requestAttributes`.
-
-### Interface `IOptimizedDataSet`
-Define o recurso (usualmente o caminho para um arquivo em disco) que é a fonte de dados, otimiza e substitui valores.
-
-Método | Objetivo
--------| --------
-`optimizeAllAttributes` | Otimiza os valores automaticamente até o mínimo de acurácia informada pelo parâmetro `minAccuracy`.
-`attributeReplaceValue` | Substitui os valores de um atributo, informados através dos parâmetros `attribute`, `search` e `replacement`.
-`classifiersReplaceValue` | Substitui os valores entre os classificadores, informado através dos parâmetros `search` e `replacement`.
-`attributeReplaceLimits` | Substitui os valores numéricos de um atributo, informados através dos parâmetros `attribute`, `lessThan`, `moreThan` e `replacement`.
-`classifiersReplaceLimits` | Substitui os valores numéricos entre classificadores, informados através dos parâmetros `lessThan`, `moreThan` e `replacement`.
-`attributesReplaceValue` | Substitui os valores entre todos os atributs, informado através dos parâmetros `search` e `replacement`.
-`attributesReplaceLimits` | Substitui os valores entre todos os atributs numéricos, informado através dos parâmetros `lessThan`, `moreThan` e `replacement`.
+zW.crieArvore("Nome da Árvore");
+zW.insiraElementoArvore("Nome da Árvore 2", -1, 1, "Raiz", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"} );
+zW.insiraElementoArvore("Nome da Árvore 2", 1, 11, "Filho 1.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"} );
+zW.insiraElementoArvore("Nome da Árvore 2", 11, 111, "Filho 1.1.1", null );
+zW.insiraElementoArvore("Nome da Árvore 2", 1, 12, "Filho 1.2", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"} );
+zW.insiraElementoArvore("Nome da Árvore 2", 12, 121, "Filho 1.2.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4", "Talvez", "blue"} );
+zW.insiraElementoArvore("Nome da Árvore 2", 121, 1211, "Filho 1.2.1.1");
+zW.insiraElementoArvore("Nome da Árvore 2", 121, 1212, "Filho 1.2.1.2");
+zW.insiraElementoArvore("Nome da Árvore 2", 121, 1213, "Filho 1.2.1.3", null );
+zW.insiraElementoArvore("Nome da Árvore 2", 12, 122, "Filho 1.2.2");
+~~~
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
