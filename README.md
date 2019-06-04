@@ -44,8 +44,8 @@ Método | Objetivo
 `insiraElementoArvore` | Sobrecarga de `insiraElementoArvore`. Recebe também um vetor de legendas que ficarão na parte inferior do nó na exibição. Nesse vetor, você deve passar um valor e na posição seguinte um valor de cor de fundo (`{"Sim", "#5cbd79", "Não", "#5b87d4"}`).
 `criePaginaHTML` | Cria no diretório do programa uma página HTML se nome do arquivo já estiver definido.
 `abraPagina` | Abre no navegador a página criada.
-`setNomeArquivo` | Recebe uma String com um nome de identificação do arquivo e o registra.
-`setNomeSite` | Recebe uma String com um nome para o site e o registra.
+`setNomeArquivo` | Recebe uma `String` com um nome de identificação do arquivo e o registra.
+`setNomeSite` | Recebe uma `String` com um nome para o site e o registra.
 
 ## Exemplos de Implementações
 
