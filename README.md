@@ -86,5 +86,5 @@ A árvore interage com o cursor, alterando a cor do nó e subnós. As folhas pos
 </p>
 Quando a função de classificador é aplicada a essa mesma árvore, campos do lado esquerdo permitem que usuário adicione informações e através de JavaScript encontramos um nó, que pode ou ser de decisão ou uma folha, ambos chamados de "Classificação" para uma aplicação mais ampla.
 <p align="center">
-  <img src="Arquivos/classificador.png?raw=true" width="500" title="Árvore com classificador">
+  <img src="Arquivos/classificacao.png?raw=true" width="500" title="Árvore com classificador">
 </p>
