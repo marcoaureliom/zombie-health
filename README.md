@@ -21,11 +21,16 @@ public interface IZombieWEB {
 					    String textoNovoElemento);
 	public boolean insiraElementoArvore(String nomeArvore, int idPai, int idNovoElemento, 
 					    String textoNovoElemento, String[] legendasInferiores);
-	public boolean criePaginaHTML();
-	public void abraPagina();
 	
+	//Métodos da criação de um classificador:
+	public void crieClassificador(String nomeArvore);
+	public void removaClassificador(String nomeArvore);
+	
+	//Métodos de criação da página:
 	public void setNomeArquivo(String nomeArquivo);
 	public void setNomeSite(String nomeSite);
+	public boolean criePaginaHTML();
+	public void abraPagina();
 	
 }
 ~~~
@@ -46,6 +51,8 @@ Método | Objetivo
 `abraPagina` | Abre no navegador a página criada.
 `setNomeArquivo` | Recebe uma `String` com um nome de identificação do arquivo e o registra.
 `setNomeSite` | Recebe uma `String` com um nome para o site e o registra.
+`crieClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer aplicar a função de classificador.
+`removaClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer remover a função de classificador.
 
 ## Exemplos de Implementações
 
@@ -65,6 +72,8 @@ zW.insiraElementoArvore("Nome da Árvore", 121, 1212, "Filho 1.2.1.2");
 zW.insiraElementoArvore("Nome da Árvore", 121, 1213, "Filho 1.2.1.3", null );
 zW.insiraElementoArvore("Nome da Árvore", 12, 122, "Filho 1.2.2");
 
+zW.crieClassificador("Nome da Árvore");
+
 zW.criePaginaHTML();
 zW.abraPagina();
 ~~~
@@ -74,4 +83,8 @@ A árvore interage com o cursor, alterando a cor do nó e subnós. As folhas pos
   <img src="Arquivos/arvore3.png?raw=true" width="250" title="Cursor fora da árvore">
   <img src="Arquivos/arvore2.png?raw=true" width="250" title="Árvore interagindo com o cursor">
   <img src="Arquivos/arvore1.png?raw=true" width="250" title="Árvore interagindo com o cursor">
+</p>
+Quando a função de classificador é aplicada a essa mesma árvore, campos do lado esquerdo permitem que usuário adicione informações e através de JavaScript encontramos um nó, que pode ou ser de decisão ou uma folha, ambos chamados de "Classificação" para uma aplicação mais ampla.
+<p align="center">
+  <img src="Arquivos/classificador.png?raw=true" width="500" title="Árvore com classificador">
 </p>
