@@ -58,24 +58,28 @@ Método | Objetivo
 
 ### Interface `IZombieWEB`
 ~~~java
-IZombieWEB zW = new ZombieWEB();
-zW.setNomeArquivo("UmExemplo");
+//Usando AbstractOsAsdrubal
+AbstractOsAsdrubal zw = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
 
-zW.crieArvore("Nome da Árvore");
-zW.insiraElementoArvore("Nome da Árvore", -1, 1, "Raiz", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"} );
-zW.insiraElementoArvore("Nome da Árvore", 1, 11, "Filho 1.1", new String[] {"Legenda", "#5cbd79"});
-zW.insiraElementoArvore("Nome da Árvore", 11, 111, "Filho 1.1.1", null );
-zW.insiraElementoArvore("Nome da Árvore", 1, 12, "Filho 1.2", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4"});
-zW.insiraElementoArvore("Nome da Árvore", 12, 121, "Filho 1.2.1", new String[] {"Sim", "#5cbd79", "Não", "#5b87d4", "Talvez", "blue"});
-zW.insiraElementoArvore("Nome da Árvore", 121, 1211, "Filho 1.2.1.1");
-zW.insiraElementoArvore("Nome da Árvore", 121, 1212, "Filho 1.2.1.2");
-zW.insiraElementoArvore("Nome da Árvore", 121, 1213, "Filho 1.2.1.3", null );
-zW.insiraElementoArvore("Nome da Árvore", 12, 122, "Filho 1.2.2");
+//ZombieWEB
+IZombieWEB ZW = zw.crieZombieWEB();
 
-zW.crieClassificador("Nome da Árvore");
-
-zW.criePaginaHTML();
-zW.abraPagina();
+ZW.setNomeArquivo("UmExemplo");
+ZW.crieArvore("Nome da Árvore");
+ZW.insiraElementoArvore("Nome da Árvore", -1, 1, "Raiz", new String[] { "Sim", "#5cbd79", "Não", "#5b87d4" });
+ZW.insiraElementoArvore("Nome da Árvore", 1, 11, "Filho 1.1", new String[] { "Legenda", "#5cbd79" });
+ZW.insiraElementoArvore("Nome da Árvore", 11, 111, "Filho 1.1.1", null);
+ZW.insiraElementoArvore("Nome da Árvore", 1, 12, "Filho 1.2",
+		new String[] { "Sim", "#5cbd79", "Não", "#5b87d4" });
+ZW.insiraElementoArvore("Nome da Árvore", 12, 121, "Filho 1.2.1",
+		new String[] { "Sim", "#5cbd79", "Não", "#5b87d4", "Talvez", "blue" });
+ZW.insiraElementoArvore("Nome da Árvore", 121, 1211, "Filho 1.2.1.1");
+ZW.insiraElementoArvore("Nome da Árvore", 121, 1212, "Filho 1.2.1.2");
+ZW.insiraElementoArvore("Nome da Árvore", 121, 1213, "Filho 1.2.1.3", null);
+ZW.insiraElementoArvore("Nome da Árvore", 12, 122, "Filho 1.2.2");
+ZW.crieClassificador("Nome da Árvore");
+ZW.criePaginaHTML();
+ZW.abraPagina();
 ~~~
 #### Visualização
 A árvore interage com o cursor, alterando a cor do nó e subnós. As folhas possuem a mesma cor.
