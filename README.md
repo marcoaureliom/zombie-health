@@ -1,7 +1,11 @@
-# Equipe *Os Asdrubal*
+# Equipe *osAsdrubal*
+## Integrantes: Alexandre Tamaoki, Jhonatas Santos e Marco Aurélio Martins.
 
-Autores: Alexandre Tamaoki, Jhonatas Santos e Marco Aurélio Martins.
+<p align="center">
+  <img src="Arquivos/DivulgacaoOsAsdrubal.png?raw=true" title="Divulgação">
+</p>
 ----
+
 # Componente `ZombieWEB`
 
 Item | Descrição
@@ -91,11 +95,11 @@ A árvore interage com o cursor, alterando a cor do nó e subnós. As folhas pos
   <img src="Arquivos/arvore2.png?raw=true" width="250" title="Árvore interagindo com o cursor">
   <img src="Arquivos/arvore1.png?raw=true" width="250" title="Árvore interagindo com o cursor">
 </p>
-<br />
+<br>
 Quando a função de classificador é aplicada a uma árvore, campos do lado esquerdo permitem que usuário adicione informações e, através de JavaScript, encontramos um nó, que pode ou ser de decisão ou uma folha, ambos chamados de "Classificação" para uma aplicação mais ampla.
-<br /><br />
+<br><br>
 <p align="center">
   <img src="Arquivos/classificacao1.png?raw=true" title="Árvore com classificador">
 </p>
-<br />
-Para o componente `ZombieWEB` não existem limites de criação de árvores, nós e filhos de único nó; quando mais de uma árvore, a página HTML mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse.
+<br>
+Para o componente `ZombieWEB` não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página `HTML` mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo `HTML` gerado são utilizados também `JavaScript` e `CSS`.
