@@ -1,7 +1,5 @@
 package osAsdrubal.componentes;
 
-import osAsdrubal.interfaces.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

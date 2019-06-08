@@ -15,16 +15,13 @@ public class GraficoDePizza extends JFrame implements IGrafico{
  
 	private static final long serialVersionUID = 1L;
  
-	public GraficoDePizza(String x[], int y[],String t1, String t2, String t3) {
-	
+	public GraficoDePizza() {
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Gráfico");
         setSize(950,700);
         setLocationRelativeTo(null);
-        
-        crieGrafico(x, y, t1, t2, t3);
 		
-        setVisible(true);
 	}
 	
 	public void crieGrafico(String x[], int y[],String t1, String t2, String t3) {
@@ -36,6 +33,8 @@ public class GraficoDePizza extends JFrame implements IGrafico{
 		plot.setForegroundAlpha(0.5f);
 		ChartPanel painel = new ChartPanel(chart);
         add(painel);
+        
+        setVisible(true);
 		
 	}
 	private PieDataset createDataset(String x[],int y[]) {		

@@ -13,24 +13,24 @@ public class GraficoDeBarra extends JFrame implements IGrafico{
 
     private static final long serialVersionUID = 1L;
 
-    public GraficoDeBarra(String x[], int y[],String t1, String t2, String t3) {
+    public GraficoDeBarra() {
     	
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Gráfico");
         setSize(950,700);
         setLocationRelativeTo(null);
-
-        crieGrafico(x,y, t1, t2, t3);
-
-        setVisible(true);
+    	
     }
     
     public void crieGrafico(String x[], int y[],String t1, String t2, String t3) { 
+    	
     	DefaultCategoryDataset dataset;
     	dataset = createDataset(x, y);
         JFreeChart grafico = ChartFactory.createBarChart3D(t1,t2,t3, dataset, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel painel = new ChartPanel(grafico);
         add(painel);
+        
+        setVisible(true);
     }
     private DefaultCategoryDataset createDataset(String x[],int y[]) {
     	DefaultCategoryDataset dataset = new DefaultCategoryDataset();

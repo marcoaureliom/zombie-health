@@ -6,11 +6,11 @@ import osAsdrubal.interfaces.IGrafico;
 import osAsdrubal.interfaces.IZombieWEB;
 
 public class CriadorGrafico implements AbstractOsAsdrubal{
-	public IGrafico crieGraficoDeBarra(String x[], int y[],String t1, String t2, String t3) {
-        return new GraficoDeBarra(x, y, t1, t2, t3);
+	public IGrafico crieGraficoDeBarra() {
+        return new GraficoDeBarra();
     }
-	public IGrafico crieGraficoDePizza(String x[], int y[],String t1, String t2, String t3) {
-		return new GraficoDePizza(x, y, t1, t2, t3);
+	public IGrafico crieGraficoDePizza() {
+		return new GraficoDePizza();
     }
 	public IClassificador crieClassificador() {
 		return null;

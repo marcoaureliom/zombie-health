@@ -8,10 +8,10 @@ public class CriadorClassificador implements AbstractOsAsdrubal{
 	public IZombieWEB crieZombieWEB() {
 		return null;
 	}
-	public IGrafico crieGraficoDeBarra(String x[], int y[],String t1, String t2, String t3) {
+	public IGrafico crieGraficoDeBarra() {
         return null;
     }
-	public IGrafico crieGraficoDePizza(String x[], int y[],String t1, String t2, String t3) {
+	public IGrafico crieGraficoDePizza() {
 		return null;
     }
 }

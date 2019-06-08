@@ -7,8 +7,60 @@ public class OsAsdrubal {
 
 	public static void main(String[] args) {
 
+		/*
+		 * 
+		 *  
+		 * Classificador 
+		 *  
+		 *  
+		 *  */
+		//Código usando AbstractOsAsdrubal
+		AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Classificador");
+
+		//Classificador
+		IClassificador classificador = classificadorFabrica.crieClassificador();
 		
-		/*Teste ZombieWEB */
+		classificador.setInstances("data/zombie-health-new-cases500.csv");
+		classificador.construaClassificador();
+		classificador.fit();
+		
+		String[] diag = classificador.predict(classificador.requestInstanciasArvore());
+		String[] y_val = new String[classificador.requestInstances().length];
+		for(int i=0;i<classificador.requestInstanciasArvore().numInstances();i++) {
+			y_val[i] = classificador.requestInstances()[i][classificador.requestAttributes().length-1];
+			System.out.println("Pac"+i+":  "+diag[i]+"  "+classificador.requestInstances()[i][classificador.requestAttributes().length-1]);
+		}		
+	
+		classificador.imprimaClassificador();
+		
+		System.out.println("accuracy = "+classificador.accuracy(y_val,diag));
+		/*Fim do teste do classificador*/
+		
+		/*
+		 * 
+		 *  
+		 * Grafico 
+		 *  
+		 *  
+		 *  */
+		//Código usando AbstractOsAsdrubal
+		AbstractOsAsdrubal graficoFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Grafico");
+
+		//Graficos
+		IGrafico graficoPizza = graficoFabrica.crieGraficoDePizza();
+		IGrafico graficoBarra = graficoFabrica.crieGraficoDeBarra();
+		
+		graficoPizza.crieGrafico(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
+		graficoBarra.crieGrafico(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
+		/*Fim do teste do grafico*/
+		
+		/*
+		 * 
+		 *  
+		 * ZombieWEB 
+		 *  
+		 *  
+		 *  */
 		//Código usando AbstractOsAsdrubal
 		AbstractOsAsdrubal zw = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
 
@@ -55,40 +107,6 @@ public class OsAsdrubal {
 		ZW.abraPagina();
 		/*Fim do teste ZombieWEB */
 		
-		
-		/*Teste do IClassificador*/
-		//Código usando AbstractOsAsdrubal
-		AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Classificador");
-
-		//Classificador
-		IClassificador classificador = classificadorFabrica.crieClassificador();
-		
-		classificador.setInstances("data/zombie-health-new-cases500.csv");
-		classificador.construaClassificador();
-		classificador.fit();
-		
-		String[] diag = classificador.predict(classificador.requestInstanciasArvore());
-		String[] y_val = new String[classificador.requestInstances().length];
-		for(int i=0;i<classificador.requestInstanciasArvore().numInstances();i++) {
-			y_val[i] = classificador.requestInstances()[i][classificador.requestAttributes().length-1];
-			System.out.println("Pac"+i+":  "+diag[i]+"  "+classificador.requestInstances()[i][classificador.requestAttributes().length-1]);
-		}		
-	
-		classificador.imprimaClassificador();
-		
-		System.out.println("accuracy = "+classificador.accuracy(y_val,diag));
-		/*Fim do teste do classificador*/
-		
-		/*Teste do IGrafico*/
-		//Código usando AbstractOsAsdrubal
-		AbstractOsAsdrubal graficoFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Grafico");
-
-		//Graficos
-		IGrafico graficoPizza = graficoFabrica.crieGraficoDePizza(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
-		IGrafico graficoBarra = graficoFabrica.crieGraficoDeBarra(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
-		/*Fim do teste do grafico*/
-		
-
 	}
 
 }
