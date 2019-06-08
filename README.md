@@ -10,10 +10,10 @@
 
 Item | Descrição
 ----- | -----
-Classe | `osAsdrubal.interfaces.IZombieWEB`
+Classe | `osAsdrubal.componentes.ZombieWEB`
 Autor | Marco Aurélio
 Objetivo | Criar gráficos de dados usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
-Interface | `IZombieWEB`
+Interface | `osAsdrubal.interfaces.IZombieWEB`
 
 ~~~
 public interface IZombieWEB {
