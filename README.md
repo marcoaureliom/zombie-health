@@ -45,7 +45,7 @@ Método | Objetivo
 -------| --------
 `crieArvore` | Recebe uma `String` com um nome de identificação de árvore e o registra.
 `removaArvore` | Recebe uma `String` com um nome de identificação de árvore e a remove.
-`insiraElementoArvore` | Insere na árvore um elemento (nó). Recebe por parâmetro o nome da árvore em que você quer inserir o elemento, o ID (`int`) do elemento pai (`-1` se raiz), o ID (`int`) deste elemento novo, uma `String` que será o texto do elemento.
+`insiraElementoArvore` | Insere na árvore um elemento (nó). Recebe por parâmetro o nome da árvore em que você quer inserir o elemento, o ID (`int`) do elemento pai (**-1** se raiz), o ID (`int`) deste elemento novo, uma `String` que será o texto do elemento.
 `insiraElementoArvore` | Sobrecarga de `insiraElementoArvore`. Recebe também um vetor de legendas que ficarão na parte inferior do nó na exibição. Nesse vetor, você deve passar um valor e na posição seguinte um valor de cor de fundo (`{"Sim", "#5cbd79", "Não", "#5b87d4"}`).
 `criePaginaHTML` | Cria no diretório do programa uma página HTML se nome do arquivo já estiver definido.
 `abraPagina` | Abre no navegador a página criada.
@@ -94,3 +94,4 @@ Quando a função de classificador é aplicada a uma árvore, campos do lado esq
 <p align="center">
   <img src="Arquivos/classificacao1.png?raw=true" title="Árvore com classificador">
 </p>
+Para o componente ZombieWEB não existe, limites de criação de árvores, nós e filhos de único nó.
