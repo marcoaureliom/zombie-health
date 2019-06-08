@@ -6,7 +6,7 @@ Autores: Alexandre Tamaoki, Jhonatas Santos e Marco Aurélio Martins.
 
 Item | Descrição
 ----- | -----
-Classe | `zombieHealth.ZombieWEB`
+Classe | `osAsdrubal.interfaces.IZombieWEB`
 Autor | Marco Aurélio
 Objetivo | Criar gráficos de dados usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
 Interface | `IZombieWEB`
@@ -58,6 +58,9 @@ Método | Objetivo
 
 ### Interface `IZombieWEB`
 ~~~java
+import osAsdrubal.componentes.*;
+import osAsdrubal.interfaces.*;
+
 //Usando AbstractOsAsdrubal
 AbstractOsAsdrubal zw = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
 
