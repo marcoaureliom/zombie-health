@@ -6,6 +6,41 @@
 </p>
 
 ----
+# Arquivo JAR
+[BAIXE AQUI](https://github.com/marcoaureliom/zombie-health/tree/master/JAR)
+
+# Componente `GeneralOsAsdrubal`
+
+Item | Descrição
+----- | -----
+Classe | `osAsdrubal.componentes.GeneralOsAsdrubal`
+Objetivo | Cria fábricas dos componentes da equipe.
+Único método (**estático**): `crieOsAsdrubal` | Recebe uma `String` com um nome de identificação do componente ("ZombieWEB", "Classificador" ou "Grafico") e retorna um `AbstractOsAsdrubal`
+~~~ java
+public interface AbstractOsAsdrubal {
+	public IZombieWEB crieZombieWEB();
+	public IClassificador crieClassificador();
+	public IGrafico crieGraficoDeBarra();
+	public IGrafico crieGraficoDePizza();
+}
+~~~
+## Exemplo de implementação
+~~~java
+import osAsdrubal.componentes.*;
+import osAsdrubal.interfaces.*;
+
+AbstractOsAsdrubal zwFabriga = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
+AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Classificador");
+AbstractOsAsdrubal gFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Grafico");
+
+IZombieWEB zw = zwFabriga.crieZombieWEB();
+IClassificador classificador = classificadorFabrica.crieClassificador();
+IGrafico gBarra = gFabrica.crieGraficoDeBarra();
+IGrafico gPizza = gFabrica.crieGraficoDePizza();
+~~~
+
+----
+# Componentes
 # Componente `ZombieWEB`
 
 Item | Descrição
@@ -14,7 +49,6 @@ Classe | `osAsdrubal.componentes.ZombieWEB`
 Autor | Marco Aurélio
 Objetivo | Criar gráficos de dados usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
 Interface | `osAsdrubal.interfaces.IZombieWEB`
-
 ~~~ java
 public interface IZombieWEB {
 
