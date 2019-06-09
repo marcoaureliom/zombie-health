@@ -17,4 +17,7 @@ public interface IZombieWEB {
 	public void setNomeSite(String nomeSite);
 	public boolean criePaginaHTML();
 	public void abraPagina();
+	
+	//Obter a árvore
+	public INoArvore getArvore(String nomeArvore);
 }

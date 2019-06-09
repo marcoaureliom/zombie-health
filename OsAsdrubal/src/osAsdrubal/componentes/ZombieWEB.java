@@ -14,7 +14,7 @@ public class ZombieWEB implements IZombieWEB {
 
 	// Atributos
 	private List<String> arvores = new ArrayList<String>();
-	private List<NoArvore> raizArvores = new ArrayList<NoArvore>();
+	private List<INoArvore> raizArvores = new ArrayList<INoArvore>();
 	private List<String> classificadores = new ArrayList<String>();
 	private String nomeArquivo, nomeSite = "ZombieWEB", corPadrao1 = "#5cbd79", corPadrao2 = "#5b87d4",
 			corPadrao3 = "#0366d6";
@@ -53,7 +53,7 @@ public class ZombieWEB implements IZombieWEB {
 	}
 
 	private boolean crieNoRaiz(int i, int id, String texto, String[] legendasInferiores) {
-		// raizArvores[i] = new NoArvore(id, texto, legendasInferiores);
+		// raizArvores[i] = new INoArvore(id, texto, legendasInferiores);
 		raizArvores.add(i, new NoArvore(id, texto, legendasInferiores));
 
 		return true;
@@ -61,7 +61,7 @@ public class ZombieWEB implements IZombieWEB {
 
 	private boolean insiraNo(int i, int idPai, int idElemento, String texto, String[] legendasInferiores) {
 
-		NoArvore no = raizArvores.get(i).encontreNoPorId(idPai);
+		INoArvore no = raizArvores.get(i).encontreNoPorId(idPai);
 
 		if (no != null) {
 			no.addFilho(idElemento, texto, legendasInferiores);
@@ -90,10 +90,10 @@ public class ZombieWEB implements IZombieWEB {
 
 	}
 
-	private String imprimaArvoreHTML(NoArvore no) {
+	private String imprimaArvoreHTML(INoArvore no) {
 
 		String texto;
-		List<NoArvore> filhos = no.getFilhos();
+		List<INoArvore> filhos = no.getFilhos();
 		boolean temFilhos;
 
 		temFilhos = !filhos.isEmpty();
@@ -129,7 +129,7 @@ public class ZombieWEB implements IZombieWEB {
 		if (temFilhos) {
 
 			texto += "<ul>";
-			for (NoArvore filho : filhos) {
+			for (INoArvore filho : filhos) {
 				texto += "<li>";
 				texto += imprimaArvoreHTML(filho);
 				texto += "</li>";
@@ -141,10 +141,10 @@ public class ZombieWEB implements IZombieWEB {
 
 	}
 
-	private String imprimaArvoreEstruturaDadosJS(NoArvore no) {
+	private String imprimaArvoreEstruturaDadosJS(INoArvore no) {
 
 		String texto;
-		List<NoArvore> filhos = no.getFilhos();
+		List<INoArvore> filhos = no.getFilhos();
 		boolean temFilhos;
 
 		temFilhos = !filhos.isEmpty();
@@ -183,10 +183,10 @@ public class ZombieWEB implements IZombieWEB {
 
 	
 	ArrayList<String> inputsAdicionados; 
-	private String imprimaArvoreEstruturaInput(NoArvore no, int iArv) {
+	private String imprimaArvoreEstruturaInput(INoArvore no, int iArv) {
 
 		String texto = "";
-		List<NoArvore> filhos = no.getFilhos();
+		List<INoArvore> filhos = no.getFilhos();
 		boolean temFilhos;
 
 		temFilhos = !filhos.isEmpty();
@@ -202,7 +202,7 @@ public class ZombieWEB implements IZombieWEB {
 		}
 		
 		if (temFilhos)
-			for (NoArvore filho : filhos)
+			for (INoArvore filho : filhos)
 				if (!filho.getFilhos().isEmpty())
 					texto += imprimaArvoreEstruturaInput(filho, iArv);
 
@@ -410,6 +410,16 @@ public class ZombieWEB implements IZombieWEB {
 
 	public void setNomeSite(String nomeSite) {
 		this.nomeSite = nomeSite;
+	}
+	//get
+	public INoArvore getArvore(String nomeArvore) {
+		
+		int i = arvores.indexOf(nomeArvore);
+		if(i != -1) {
+			return raizArvores.get(i);
+		}
+		
+		return null;
 	}
 }
 

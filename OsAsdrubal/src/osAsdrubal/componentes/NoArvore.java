@@ -3,14 +3,16 @@ package osAsdrubal.componentes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoArvore {
+import osAsdrubal.interfaces.INoArvore;
+
+public class NoArvore implements INoArvore{
 
 	private int id;
 	private String texto;
 	private String[] legendasInferiores;
 
-	private NoArvore pai;
-	private List<NoArvore> filhos;
+	private INoArvore pai;
+	private List<INoArvore> filhos;
 
 	public NoArvore(int id, String texto, String[] legendasInferiores) {
 
@@ -22,22 +24,22 @@ public class NoArvore {
 				this.legendasInferiores[i] = legendasInferiores[i];
 			}
 		}
-		filhos = new ArrayList<NoArvore>();
+		filhos = new ArrayList<INoArvore>();
 	}
 
 	public void addFilho(int id, String texto, String[] legendasInferiores) {
-		NoArvore filho = new NoArvore(id, texto, legendasInferiores);
+		INoArvore filho = new NoArvore(id, texto, legendasInferiores);
 		filho.setPai(this);
 		this.filhos.add(filho);
 	}
 
-	public NoArvore encontreNoPorId(int id) {
+	public INoArvore encontreNoPorId(int id) {
 
 		if (this.id == id)
 			return this;
 
-		for (NoArvore filho : filhos) {
-			NoArvore f = filho.encontreNoPorId(id);
+		for (INoArvore filho : filhos) {
+			INoArvore f = filho.encontreNoPorId(id);
 			if (f != null)
 				return f;
 		}
@@ -46,7 +48,7 @@ public class NoArvore {
 
 	}
 
-	public void setPai(NoArvore pai) {
+	public void setPai(INoArvore pai) {
 		this.pai = pai;
 	}
 
@@ -68,7 +70,7 @@ public class NoArvore {
 		return (pai != null);
 	}
 
-	public List<NoArvore> getFilhos() {
+	public List<INoArvore> getFilhos() {
 		return filhos;
 	}
 
