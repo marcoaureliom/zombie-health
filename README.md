@@ -15,7 +15,7 @@ Autor | Marco Aurélio
 Objetivo | Criar gráficos de dados usando ferramentas de Desenvolvimento WEB dos principais elementos do Zombie Health.
 Interface | `osAsdrubal.interfaces.IZombieWEB`
 
-~~~
+~~~ java
 public interface IZombieWEB {
 
 	//Métodos da criação de uma árvore:
@@ -39,6 +39,20 @@ public interface IZombieWEB {
 }
 ~~~
 
+# Componentes Gráfico de Barra e Gráfico de Pizza #
+
+|   Item   |                          Descrição                          |
+|----------|-------------------------------------------------------------|
+| Classe   | GraficoDeBarra e GraficoDePizza                             |
+| Autor    | Jhonatas Santos                                             |
+| Objetivo | Criar gráficos de barra e de pizza para ter representação visual de alguns resultados.|
+
+~~~ java
+public interface IGrafico {
+	public void crieGrafico(String x[], int y[],String t1, String t2, String t3);
+}
+~~~
+
 ## Detalhamento das Interfaces
 
 ### Interface `IZombieWEB`
@@ -57,6 +71,12 @@ Método | Objetivo
 `setNomeSite` | Recebe uma `String` com um nome para o site e o registra.
 `crieClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer aplicar a função de classificador.
 `removaClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer remover a função de classificador.
+
+## Interface IGrafico
+
+|   Método            |   Objetivo   |
+|---------------------|--------------|
+| ```crieGrafico``` | Recebe um vetor de ```Strings``` para ser o eixo *x* no gráfico de barras ou a descrição de um intervalo do círculo no gráfico de pizza. Recebe também um vetor de ```int``` que será o eixo *y* para o gráfico de barras e será o tamanho do intervalo do círculo no gráfico de pizza. Por último, recebe três parametros ```Strings``` que serão título do gráfico, título do eixo x e título do eixo y respectivamente, para o gráfico de barras, mas para o gráfico de pizza só será usado o título do gráfico, e então os dois outros campos podem ser ```Strings``` vazias.|
 
 ## Exemplos de Implementações
 
@@ -103,3 +123,25 @@ Quando a função de classificador é aplicada a uma árvore, campos do lado esq
 </p>
 <br>
 Para o componente `ZombieWEB` não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página `HTML` mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo `HTML` gerado são utilizados também `JavaScript` e `CSS`.
+
+### Interface ```IGrafico```
+
+~~~ java
+import osAsdrubal.componentes.*;
+import osAsdrubal.interfaces.*;
+
+//Usando AbstractOsAsdrubal
+AbstractOsAsdrubal graficoFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Grafico");
+
+//Graficos
+IGrafico graficoPizza = graficoFabrica.crieGraficoDePizza();
+IGrafico graficoBarra = graficoFabrica.crieGraficoDeBarra();
+
+graficoPizza.crieGrafico(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
+graficoBarra.crieGrafico(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1", "t2", "t3");
+~~~       
+#### Visualização
+<p align="center">
+  <img src="Arquivos/graficoBarra.png?raw=true" width="250" title="Gráfico de Barra">
+  <img src="Arquivos/graficoPizza.png?raw=true" width="250" title="Gráfico de Pizza">
+</p>
