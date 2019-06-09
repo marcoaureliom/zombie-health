@@ -39,14 +39,15 @@ public interface IZombieWEB {
 }
 ~~~
 
-# Componentes Gráfico de Barra e Gráfico de Pizza #
+# Componentes Gráfico de Barra e Gráfico de Pizza
 
 |   Item   |                          Descrição                          |
 |----------|-------------------------------------------------------------|
-| Classe   | GraficoDeBarra e GraficoDePizza                             |
+| Classe   | `osAsdrubal.componentes.GraficoDeBarra` e `osAsdrubal.componentes.GraficoDePizza`|
 | Autor    | Jhonatas Santos                                             |
 | Objetivo | Criar gráficos de barra e de pizza para ter representação visual de alguns resultados.|
-
+| Interface| `osAsdrubal.interfaces.IGrafico`|
+| **Pacotes externos requeridos** | [jcommon-1.0.23.jar](https://github.com/marcoaureliom/zombie-health/blob/master/JAR/Externos/jcommon-1.0.23.jar) e [jfreechart-1.0.19.jar](https://github.com/marcoaureliom/zombie-health/blob/master/JAR/Externos/jfreechart-1.0.19.jar)|
 ~~~ java
 public interface IGrafico {
 	public void crieGrafico(String x[], int y[],String t1, String t2, String t3);
@@ -57,7 +58,6 @@ public interface IGrafico {
 
 ### Interface `IZombieWEB`
 Acesso aos métodos de criação de uma página.
-(Atualmente finalizada a criação da árvore. Em breve, novas funcionalidades!)
 
 Método | Objetivo
 -------| --------
@@ -65,12 +65,13 @@ Método | Objetivo
 `removaArvore` | Recebe uma `String` com um nome de identificação de árvore e a remove.
 `insiraElementoArvore` | Insere na árvore um elemento (nó). Recebe por parâmetro o nome da árvore em que você quer inserir o elemento, o ID (`int`) do elemento pai (**-1** se raiz), o ID (`int`) deste elemento novo, uma `String` que será o texto do elemento.
 `insiraElementoArvore` | Sobrecarga de `insiraElementoArvore`. Recebe também um vetor de legendas que ficarão na parte inferior do nó na exibição. Nesse vetor, você deve passar um valor e na posição seguinte um valor de cor de fundo (`{"Sim", "#5cbd79", "Não", "#5b87d4"}`).
-`criePaginaHTML` | Cria no diretório do programa uma página HTML se nome do arquivo já estiver definido.
-`abraPagina` | Abre no navegador a página criada.
-`setNomeArquivo` | Recebe uma `String` com um nome de identificação do arquivo e o registra.
-`setNomeSite` | Recebe uma `String` com um nome para o site e o registra.
 `crieClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer aplicar a função de classificador.
 `removaClassificador` | Recebe uma `String` com um nome de identificação da árvore que quer remover a função de classificador.
+`setNomeArquivo` | Recebe uma `String` com um nome de identificação do arquivo e o registra.
+`setNomeSite` | Recebe uma `String` com um nome para o site e o registra.
+`criePaginaHTML` | Cria no diretório do programa uma página HTML se nome do arquivo já estiver definido.
+`abraPagina` | Abre no navegador a página criada.
+`getArvore` | (Funcionalidade extra: necessário ler implementação [aqui](https://github.com/marcoaureliom/zombie-health/blob/master/OsAsdrubal/src/osAsdrubal/interfaces/INoArvore.java) e [aqui](https://github.com/marcoaureliom/zombie-health/blob/master/OsAsdrubal/src/osAsdrubal/componentes/NoArvore.java).) Recebe uma `String` com um nome de identificação da árvore e retorna sua raiz (```INoArvore```).
 
 ## Interface IGrafico
 
@@ -122,7 +123,7 @@ Quando a função de classificador é aplicada a uma árvore, campos do lado esq
   <img src="Arquivos/classificacao1.png?raw=true" title="Árvore com classificador">
 </p>
 <br>
-Para o componente `ZombieWEB` não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página `HTML` mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo `HTML` gerado são utilizados também `JavaScript` e `CSS`.
+Para o componente ```ZombieWEB``` não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página ```HTML``` mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo ```HTML``` gerado são utilizados também ```JavaScript``` e ```CSS```.
 
 ### Interface ```IGrafico```
 
