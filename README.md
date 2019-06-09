@@ -123,7 +123,7 @@ Quando a função de classificador é aplicada a uma árvore, campos do lado esq
   <img src="Arquivos/classificacao1.png?raw=true" title="Árvore com classificador">
 </p>
 <br>
-Para o componente ```ZombieWEB``` não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página ```HTML``` mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo ```HTML``` gerado são utilizados também ```JavaScript``` e ```CSS```.
+Para o componente ZombieWEB não existem limites de criação de árvores, nós e filhos de único nó; quando é criada mais de uma árvore, a página HTML mostra uma seguida da outra. O classificador que vemos acima tenta classificar no momento que um campo está sendo preenchido, e não é necessário que se preencha todos. Os campos, assim como a árvore, possuem interação com o movimento e clique do mouse. No arquivo HTML gerado são utilizados também JavaScript e CSS.
 
 ### Interface ```IGrafico```
 
