@@ -17,7 +17,8 @@ public class GraficoDePizza extends JFrame implements IGrafico{
  
 	public GraficoDePizza() {
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//Se isto setado, ao fechar a janela do gráfico a aplicação toda se encerra
+    	//setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Gráfico");
         setSize(950,700);
         setLocationRelativeTo(null);
