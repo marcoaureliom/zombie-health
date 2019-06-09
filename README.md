@@ -29,11 +29,11 @@ public interface AbstractOsAsdrubal {
 import osAsdrubal.componentes.*;
 import osAsdrubal.interfaces.*;
 
-AbstractOsAsdrubal zwFabriga = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
+AbstractOsAsdrubal zwFabrica = GeneralOsAsdrubal.crieOsAsdrubal("ZombieWEB");
 AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Classificador");
 AbstractOsAsdrubal gFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Grafico");
 
-IZombieWEB zw = zwFabriga.crieZombieWEB();
+IZombieWEB zw = zwFabrica.crieZombieWEB();
 IClassificador classificador = classificadorFabrica.crieClassificador();
 IGrafico gBarra = gFabrica.crieGraficoDeBarra();
 IGrafico gPizza = gFabrica.crieGraficoDePizza();
