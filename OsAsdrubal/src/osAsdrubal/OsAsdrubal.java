@@ -43,9 +43,8 @@ public class OsAsdrubal {
 				        rodeClassificador();
 				   }
 				});
-			try {
-			    btnC.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnClassificador.png"))));
-			}catch (Exception ex) {}
+			btnC.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnClassificador.png"))));
+			
 			
 			JButton btnZ = new JButton("ZombieWEB");
 			btnZ.addActionListener(new ActionListener(){
@@ -53,9 +52,7 @@ public class OsAsdrubal {
 					   ZW.abraPagina();
 				   }
 				});
-			try {
-			    btnZ.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnZombieWEB.png"))));
-			}catch (Exception ex) {}
+			btnZ.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnZombieWEB.png"))));
 			
 			JButton btnG = new JButton("Graficos");
 			btnG.addActionListener(new ActionListener(){
@@ -63,9 +60,7 @@ public class OsAsdrubal {
 				        rodeGraficos();
 				   }
 				});
-			try {
-			    btnG.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnGraficos.png"))));
-			}catch (Exception ex) {}
+			btnG.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnGraficos.png"))));
 			
 			JButton btnE = new JButton("Entrevista");
 			btnE.addActionListener(new ActionListener(){
@@ -73,9 +68,7 @@ public class OsAsdrubal {
 					  rodeAnimacao(ZW);
 				   }
 				});
-			try {
-			    btnE.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnEntrevista.png"))));
-			}catch (Exception ex) {}
+			btnE.setIcon(new ImageIcon(ImageIO.read(new File("imagens/btnEntrevista.png"))));
 			
 			//Aplique para todos os botões
 			JButton [] botoes = {btnC, btnZ, btnG, btnE};
@@ -134,24 +127,11 @@ public class OsAsdrubal {
 			System.out.println("Árvore de ZombieWEB não criada.");
 			return;
 		}
-			
-		String tituloArv = "Zombie Health 500 casos";
 		
-		// Instanciando a animação
-		IAnimationC animacao = new AnimationC();
-
-		// Configurações
-		String nomePaciente = "Shallow", nomeMedico = "Asdrubal Socio";
-
-		animacao.setWindowName("Doutores Asdrubal");
-		animacao.setDocName(nomeMedico);
-		animacao.setPacientName(nomePaciente);
-		animacao.setTempo("fast");
-
-		INoArvore arvore = ZW.getArvore(tituloArv);
-		
-		// Instância um objeto da Random especificando a semente
+		INoArvore arvore = ZW.getArvore("Zombie Health 500 casos");
 		ArrayList<String> instanciaLista = new ArrayList<String>();
+		ArrayList<String> falasLista = new ArrayList<String>();
+		ArrayList<String> personagemLista = new ArrayList<String>();
 		
 		IDataSet dataset = new DataSetComponentArvore();
 		dataset.setDataSource("data/zombie-health-new-cases500.csv");
@@ -171,20 +151,30 @@ public class OsAsdrubal {
 		}	
 		//System.out.println(instanciaLista.toString());
 		
-		ArrayList<String> falasLista = new ArrayList<String>();
-		ArrayList<String> personagemLista = new ArrayList<String>();
+		// Instanciando a animação
+		IAnimationC animacao = new AnimationC();
 
-		falasLista.add("Olá, doutor!");
+		// Configurações
+		String nomePaciente = "Shallow", nomeMedico = "Asdrubal Socio";
+		animacao.setWindowName("Doutores Asdrubal");
+		animacao.setDocName(nomeMedico);
+		animacao.setPacientName(nomePaciente);
+		animacao.setTempo("fast");
+
+		//Diálogo
+		falasLista.add("Olá novamente, doutor!");
 		personagemLista.add("pacient");
 		falasLista.add("Olá, " + nomePaciente + "! O que faz estar aqui now?");
 		personagemLista.add("doctor");
-		falasLista.add("Não estou bem e não sei o que há comigo.");
+		falasLista.add("Sempre a mesma piada. Não estou bem e não sei o que há comigo.");
 		personagemLista.add("pacient");
 
-		String resultado = "010101?", resposta = "010101";
+		String resultado = "?", resposta = "010101";
 		INoArvore re = arvore;
 		while (resultado.contains("?")) {
 
+			if(re.getFilhos()==null) return;
+			
 			re = procureArvore(re, resposta);
 			resultado = re.getTexto();
 
@@ -200,12 +190,10 @@ public class OsAsdrubal {
 					System.out.println("Erro. Não há na instancia: " + resultado.substring(0, resultado.length() - 1));
 					return;
 				}
-
 			} else {
 				falasLista.add("Seu diagnóstico é " + resultado + ".");
 				personagemLista.add("doctor");
 			}
-
 		}
 		falasLista.add("Obrigado, doutor.");
 		personagemLista.add("pacient");
