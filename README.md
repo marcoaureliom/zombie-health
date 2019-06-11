@@ -248,3 +248,8 @@ classificador.imprimaClassificador();
 		
 System.out.println("accuracy = "+classificador.accuracy(y_val,diag));
 ~~~    
+
+# Diagrama UML
+<p align="center">
+  <img src="Arquivos/DiagramaUML.png?raw=true" title="UML">
+</p>
