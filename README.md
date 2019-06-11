@@ -103,9 +103,12 @@ public interface IClassificador {
 	public void fit();
 	public String[] predict(Instances test_data);
 	public String predict(Instance test_data);
-	public void setInstances(Instances instancias);
+	public void setInstances(String file);
 	public void imprimaClassificador();
 	public abstract float accuracy (String[] y_val, String[] y_pred);
+	public String[] requestAttributes();
+	public String[][] requestInstances();
+	public Instances requestInstanciasArvore();
 }
 ~~~
 
@@ -142,7 +145,10 @@ Método | Objetivo
 |```String [] predict```| Após ter o modelo treinado, prediz o target para cada uma das instâncias passadas como parâmetro e retorna um vetor de Strings com estes targets (última coluna das instancias).|
 |```String predict```| Prediz o target de uma única instância. Este método é utilizado iterativamente pelo método anterior para predizer para várias instâncias.|
 |```imprimaClassificador```| Imprime a árvore de decisão detalhada utilizada como modelo para a predição.|
-|```setInstances```| Altera as instâncias utilizadas para criar o modelo. Se as instâncias mudarem, é necessário chamar os métodos construaClassificador e fit para predizer corretamente as instâncias.|
+|```setInstances```| Altera as instâncias utilizadas para criar o modelo com base no caminho do arquivo passado. Se as instâncias mudarem, é necessário chamar os métodos construaClassificador e fit para predizer corretamente as instâncias.|
+|```requestAttributes```| Retorna os atributos do arquivo .csv passado como parâmetro para o classificador.|
+|```requestIntances```| Retorna os dados do arquivo .csv passado como parâmetro em formato de String[][].|
+|```requestInstanciasArvore```| Retorna os dados do arquivo .csv passado como parâmetro em formato de Instances.|
 
 ## Exemplos de Implementações
 
@@ -219,22 +225,23 @@ import osAsdrubal.componentes.*;
 import osAsdrubal.interfaces.*;
 
 //Usando AbstractOsAsdrubal
-AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("");
+AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("Classificador");
 
-IDataSet dataset = new DataSetComponentArvore();
 dataset.setDataSource("C:\\Users\\massa\\Documents\\MC322\\Trabalho\\zombie-health-new-cases500.csv");
 
-IClassificador classificador = classificadorFabrica.crieClassificador(dataset.requestInstanciasArvore());
-		
+IClassificador classificador = classificadorFabrica.crieClassificador();
+
+classificador.setInstances("zombie-health-new-cases500.csv")		
 classificador.construaClassificador();
 		
 classificador.fit();
-String[] diag = classificador.predict(dataset.requestInstanciasArvore());
+String[] diag = classificador.predict(classificador.requestInstanciasArvore());
 
-String[] y_val = new String[dataset.requestInstances().length];
-for(int i=0;i<dataset.requestInstanciasArvore().numInstances();i++) {
-	y_val[i] = dataset.requestInstances()[i][dataset.requestAttributes().length-1];
-	System.out.println("Pac"+i+":  "+diag[i]+"  "+dataset.requestInstances()[i][dataset.requestAttributes().length-1]);
+String[] y_val = new String[classificador.requestInstances().length];
+System.out.println("      Predict      Real")
+for(int i=0;i<classificador.requestInstanciasArvore().numInstances();i++) {
+	y_val[i] = classificador.requestInstances()[i][classificador.requestAttributes().length-1];
+	System.out.println("Pac"+i+": "+diag[i]+"  "+classificador.requestInstances()[i][classificador.requestAttributes().length-1]);
 }
 			
 classificador.imprimaClassificador();
