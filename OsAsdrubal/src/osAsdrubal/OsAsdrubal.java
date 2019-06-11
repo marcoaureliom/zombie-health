@@ -32,6 +32,7 @@ public class OsAsdrubal {
 		//Instância necessária para que usuário possa rodar a entrevista posteriormente
 		IZombieWEB ZW = rodeZombieWEB();		
 		try {
+			
 			Image image = ImageIO.read(new File("imagens/background.png"));
 			JPanel j = new JPanelWithBackground(image); 
 			j.setLayout(new FlowLayout());
@@ -94,10 +95,9 @@ public class OsAsdrubal {
 			f.setLocationRelativeTo(null);
 			f.setVisible(true);
 			
-		}catch(IOException e) {
-			
+		}catch(Exception e) {
+			System.out.println("Erro ao criar tela com botões."); 
 		}
-		
 	}
 
 	public static int procureStringVetor(String[] strArray, String str) {
@@ -214,6 +214,7 @@ public class OsAsdrubal {
 		
 		// Rode a animação
 		animacao.story(falas, personagem);
+		
 	}
 
 	public static IZombieWEB rodeZombieWEB() {

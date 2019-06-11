@@ -14,7 +14,7 @@ public class DataSetComponentArvore implements IDataSet {
   private Instances instanciasArvore = null;
   
   public DataSetComponentArvore() {
-    /* nothing */
+	  
   }
 
   public String getDataSource() {
@@ -32,7 +32,6 @@ public class DataSetComponentArvore implements IDataSet {
     	
     	return;
     }
-    
     readDS();    
   }
   

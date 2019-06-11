@@ -5,6 +5,11 @@ import java.util.List;
 
 import osAsdrubal.interfaces.INoArvore;
 
+/**
+ * Estrutura genérica de árvore.
+ * 
+ * @author Marco Aurélio
+ */
 public class NoArvore implements INoArvore{
 
 	private int id;
@@ -20,9 +25,8 @@ public class NoArvore implements INoArvore{
 		this.texto = texto;
 		if (legendasInferiores != null) {
 			this.legendasInferiores = new String[legendasInferiores.length];
-			for (int i = 0; i < legendasInferiores.length; i++) {
+			for (int i = 0; i < legendasInferiores.length; i++)
 				this.legendasInferiores[i] = legendasInferiores[i];
-			}
 		}
 		filhos = new ArrayList<INoArvore>();
 	}
@@ -43,7 +47,6 @@ public class NoArvore implements INoArvore{
 			if (f != null)
 				return f;
 		}
-
 		return null;
 
 	}

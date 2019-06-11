@@ -10,25 +10,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 
+/**
+ * Componente que permite criar estruturas de árvore e classificador usando tecnologias WEB.
+ * @author Marco Aurélio
+ */
 public class ZombieWEB implements IZombieWEB {
 
 	// Atributos
 	private List<String> arvores = new ArrayList<String>();
 	private List<INoArvore> raizArvores = new ArrayList<INoArvore>();
 	private List<String> classificadores = new ArrayList<String>();
-	private String nomeArquivo, nomeSite = "ZombieWEB", corPadrao1 = "#5cbd79", corPadrao2 = "#5b87d4",
-			corPadrao3 = "#0366d6";
+	private ArrayList<String> inputsAdicionados; 
+	private String nomeArquivo, nomeSite = "ZombieWEB";
 
 	public ZombieWEB() {
 
 	}
 
 	// Relativo à árvore
-
 	/**
-	 * crieArvore: Registra uma nova árvore no ZombieWEB. Retorna true caso nome
+	 * Registra uma nova árvore no ZombieWEB. Retorna true caso nome
 	 * inserido ainda não exista e false caso contrário.
-	 * 
+	 * Retorna true caso sucesso.
+	 * @param String
+	 * @return boolean
 	 */
 	public boolean crieArvore(String nomeArvore) {
 
@@ -41,6 +46,13 @@ public class ZombieWEB implements IZombieWEB {
 		return false;
 	}
 
+	/**
+	 * Remove uma árvore no ZombieWEB. Retorna true caso nome
+	 * encontrado e false caso contrário.
+	 * Retorna true caso sucesso.
+	 * @param String
+	 * @return boolean
+	 */
 	public boolean removaArvore(String nomeArvore) {
 		if (arvores.contains(nomeArvore)) {
 			int indexA = arvores.indexOf(nomeArvore);
@@ -71,10 +83,22 @@ public class ZombieWEB implements IZombieWEB {
 		return false;
 	}
 
+	/**
+	 * Insere em uma árvore um nó.
+	 * Retorna true caso sucesso.
+	 * @param String nomeArvore, int idPai, int idElemento, String textoElemento
+	 * @return boolean
+	 */
 	public boolean insiraElementoArvore(String nomeArvore, int idPai, int idElemento, String textoElemento) {
 		return insiraElementoArvore(nomeArvore, idPai, idElemento, textoElemento, null);
 	}
 
+	/**
+	 * Insere em uma árvore um nó com legendas.
+	 * Retorna true caso sucesso.
+	 * @param String nomeArvore, int idPai, int idElemento, String textoElemento, String[] legendasInferiores
+	 * @return boolean
+	 */
 	public boolean insiraElementoArvore(String nomeArvore, int idPai, int idElemento, String textoElemento,
 			String[] legendasInferiores) {
 
@@ -181,8 +205,6 @@ public class ZombieWEB implements IZombieWEB {
 
 	}
 
-	
-	ArrayList<String> inputsAdicionados; 
 	private String imprimaArvoreEstruturaInput(INoArvore no, int iArv) {
 
 		String texto = "";
@@ -211,6 +233,11 @@ public class ZombieWEB implements IZombieWEB {
 	}
 
 	// Relativo à construção da página
+	/**
+	 * Cria uma página HTML com CSS e JavaScript dos elementos criados.
+	 * Retorna true caso sucesso.
+	 * @return boolean
+	 */
 	public boolean criePaginaHTML() {
 
 		if (nomeArquivo == null)
@@ -381,6 +408,9 @@ public class ZombieWEB implements IZombieWEB {
 		}
 	}
 
+	/**
+	 * Abre no navegador a página já criada.
+	 */
 	public void abraPagina() {
 
 		if (nomeArquivo == null)
@@ -395,29 +425,47 @@ public class ZombieWEB implements IZombieWEB {
 
 	}
 
+	/**
+	 * Informa ao ZombieWEB intenção de aplicar a funcão de classificador à árvore.
+	 * @param String nome da árvore
+	 */
 	public void crieClassificador(String nomeArvore) {
 		classificadores.add(nomeArvore);
 	}
 
+	/**
+	 * Informa ao ZombieWEB intenção de não aplicar a funcão de classificador à árvore.
+	 * @param String nome da árvore
+	 */
 	public void removaClassificador(String nomeArvore) {
 		classificadores.remove(nomeArvore);
 	}
 
-	// Set
+	/**
+	 * Informa ao ZombieWEB o nome do arquivo .html a ser criado.
+	 * @param String
+	 */
 	public void setNomeArquivo(String nomeArquivo) {
 		this.nomeArquivo = nomeArquivo + ".html";
 	}
 
+	/**
+	 * Informa ao ZombieWEB o nome da página do arquivo .html a ser criado.
+	 * @param String
+	 */
 	public void setNomeSite(String nomeSite) {
 		this.nomeSite = nomeSite;
 	}
 	//get
+	/**
+	 * Retorna a raiz da árvore.
+	 * @param String nome da árvore
+	 * @return INoArvore
+	 */
 	public INoArvore getArvore(String nomeArvore) {
-		
 		int i = arvores.indexOf(nomeArvore);
-		if(i != -1) {
+		if(i != -1)
 			return raizArvores.get(i);
-		}
 		
 		return null;
 	}
