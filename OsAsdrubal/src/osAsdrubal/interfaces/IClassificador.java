@@ -14,12 +14,7 @@ public interface IClassificador {
 	public String[] predict(Instances test_data);/*Metodo para predizer n dados entrados na forma de uma matriz - Retorna os targets de cada um dos dados em um vetor*/
 	public String predict(Instance test_data);/*Metodo para predizer 1 dado - Retorna o target do dado inserido*/
 	public void setInstances(String dataCSV);/*Metodo utilizado para definir os dados de treino do classificador*/
-	public abstract float accuracy (String[] y_val, String[] y_pred);
-	
 	public void imprimaClassificador();/*Método para imprimir o classificador*/
-	public Instances requestInstanciasArvore();
-	public String[][] requestInstances();
-	public String[] requestAttributes();
-	
+	public abstract float accuracy (String[] y_val, String[] y_pred);/*Método para calcular a acuracia do modelo*/
 }
 
