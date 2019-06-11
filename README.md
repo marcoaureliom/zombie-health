@@ -88,6 +88,27 @@ public interface IGrafico {
 }
 ~~~
 
+# Componentes Classificador por Árvore de Decisão (Decision Tree Classifier)
+
+|   Item   |                          Descrição                          |
+|----------|-------------------------------------------------------------|
+| Classe   | `osAsdrubal.componentes.Classificador`|
+| Autor    | Alexandre Tamaoki                                           |
+| Objetivo | Criar uma árvore de decisão para classificar o diagnóstico do paciente.|
+| Interface| `osAsdrubal.interfaces.IClassificador`|
+| **Pacotes externos requeridos** | [weka-3.9.3.jar](https://github.com/marcoaureliom/zombie-health/blob/master/JAR/Externos/weka-3.9.3.jar)|
+~~~ java
+public interface IClassificador {
+	public void construaClassificador();
+	public void fit();
+	public String[] predict(Instances test_data);
+	public String predict(Instance test_data);
+	public void setInstances(Instances instancias);
+	public void imprimaClassificador();
+	public abstract float accuracy (String[] y_val, String[] y_pred);
+}
+~~~
+
 ## Detalhamento das Interfaces
 
 ### Interface `IZombieWEB`
@@ -112,6 +133,16 @@ Método | Objetivo
 |   Método            |   Objetivo   |
 |---------------------|--------------|
 | ```crieGrafico``` | Recebe um vetor de ```Strings``` para ser o eixo *x* no gráfico de barras ou a descrição de um intervalo do círculo no gráfico de pizza. Recebe também um vetor de ```int``` que será o eixo *y* para o gráfico de barras e será o tamanho do intervalo do círculo no gráfico de pizza. Por último, recebe três parametros ```Strings``` que serão título do gráfico, título do eixo x e título do eixo y respectivamente, para o gráfico de barras, mas para o gráfico de pizza só será usado o título do gráfico, e então os dois outros campos podem ser ```Strings``` vazias.|
+
+## Interface IClassificador
+|   Método            |   Objetivo   |
+|---------------------|--------------|
+| ```construaClassificador``` | Método de inicialização do classificador.|
+|  ```fit```| Treina o modelo com as instâncias passadas pelo construtor ou setadas com o método setInstances.|
+|```String [] predict```| Após ter o modelo treinado, prediz o target para cada uma das instâncias passadas como parâmetro e retorna um vetor de Strings com estes targets (última coluna das instancias).|
+|```String predict```| Prediz o target de uma única instância. Este método é utilizado iterativamente pelo método anterior para predizer para várias instâncias.|
+|```imprimaClassificador```| Imprime a árvore de decisão detalhada utilizada como modelo para a predição.|
+|```setInstances```| Altera as instâncias utilizadas para criar o modelo. Se as instâncias mudarem, é necessário chamar os métodos construaClassificador e fit para predizer corretamente as instâncias.|
 
 ## Exemplos de Implementações
 
@@ -180,3 +211,33 @@ graficoBarra.crieGrafico(new String[] {"x1","x2","x3"}, new int[] {1,2,3}, "t1",
   <img src="Arquivos/graficoBarra.png?raw=true" width="250" title="Gráfico de Barra">
   <img src="Arquivos/graficoPizza.png?raw=true" width="250" title="Gráfico de Pizza">
 </p>
+
+### Interface ```IClassificador```
+
+~~~ java
+import osAsdrubal.componentes.*;
+import osAsdrubal.interfaces.*;
+
+//Usando AbstractOsAsdrubal
+AbstractOsAsdrubal classificadorFabrica = GeneralOsAsdrubal.crieOsAsdrubal("");
+
+IDataSet dataset = new DataSetComponentArvore();
+dataset.setDataSource("C:\\Users\\massa\\Documents\\MC322\\Trabalho\\zombie-health-new-cases500.csv");
+
+IClassificador classificador = classificadorFabrica.crieClassificador(dataset.requestInstanciasArvore());
+		
+classificador.construaClassificador();
+		
+classificador.fit();
+String[] diag = classificador.predict(dataset.requestInstanciasArvore());
+
+String[] y_val = new String[dataset.requestInstances().length];
+for(int i=0;i<dataset.requestInstanciasArvore().numInstances();i++) {
+	y_val[i] = dataset.requestInstances()[i][dataset.requestAttributes().length-1];
+	System.out.println("Pac"+i+":  "+diag[i]+"  "+dataset.requestInstances()[i][dataset.requestAttributes().length-1]);
+}
+			
+classificador.imprimaClassificador();
+		
+System.out.println("accuracy = "+classificador.accuracy(y_val,diag));
+~~~    
