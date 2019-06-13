@@ -1,6 +1,10 @@
 package osAsdrubal.interfaces;
 import java.util.List;
 
+/**
+ * Interface do componente NoArvore.
+ * @author Marco Aurélio
+ */
 public interface INoArvore {
 
 	public void addFilho(int id, String texto, String[] legendasInferiores);

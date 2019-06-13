@@ -1,10 +1,14 @@
-package osAsdrubal.componentes;
+﻿package osAsdrubal.componentes;
 
 import osAsdrubal.interfaces.*;
 
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
+/**
+ * Componente que permite implementar IDataSet com o getDataSet do weka.
+ * @author Marco Aurélio.
+ */
 public class DataSetComponentArvore implements IDataSet {
 
   private String dataSource = null;

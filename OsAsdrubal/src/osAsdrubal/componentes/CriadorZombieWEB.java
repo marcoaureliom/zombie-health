@@ -2,6 +2,10 @@ package osAsdrubal.componentes;
 
 import osAsdrubal.interfaces.*;
 
+/**
+ * Componente que permite criar os componentes do projeto.
+ * @author Marco Aurélio
+ */
 public class CriadorZombieWEB implements AbstractOsAsdrubal {
 	public IZombieWEB crieZombieWEB() {
 		return new ZombieWEB();

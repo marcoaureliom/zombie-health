@@ -7,6 +7,10 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.JPanel;
 
+/**
+ * Componente que permite adicionar imagem de fundo ao JPanel.
+ * @author Marco Aurélio.
+ */
 public class JPanelWithBackground extends JPanel {
 	
 	private static final long serialVersionUID = 1L;

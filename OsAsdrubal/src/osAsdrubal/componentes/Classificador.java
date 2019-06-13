@@ -5,6 +5,10 @@ import weka.classifiers.trees.J48;
 import weka.core.Instance;
 import weka.core.Instances;
 
+/**
+ * Componente que recebe uma instância e é capaz de classificar usando a biblioteca externa weka.
+ * @author Alexandre
+ */
 public class Classificador implements IClassificador {
 
 	private Instances instancias;

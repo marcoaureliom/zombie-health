@@ -1,4 +1,4 @@
-package osAsdrubal.componentes;
+﻿package osAsdrubal.componentes;
 import osAsdrubal.interfaces.*;
 
 import org.jfree.chart.ChartFactory; 
@@ -9,6 +9,10 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.swing.JFrame;
 
+/**
+ * Componente que permite criar janela com gráfico de barra.
+ * @author Jhonatas.
+ */
 public class GraficoDeBarra extends JFrame implements IGrafico{
 
     private static final long serialVersionUID = 1L;

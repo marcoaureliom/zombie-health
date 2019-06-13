@@ -1,4 +1,4 @@
-package osAsdrubal;
+﻿package osAsdrubal;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -25,6 +25,12 @@ import osAsdrubal.interfaces.*;
 //Clube do Hardware
 import pt.clubedohardware.userinterface.*;
 
+/**
+ * Classe principal.
+ *
+ * @author Marco Aurélio
+ * Janela com acesso aos principais componentes desenvolvidos.
+ */
 public class OsAsdrubal {
 
 	public static void main(String[] args) {

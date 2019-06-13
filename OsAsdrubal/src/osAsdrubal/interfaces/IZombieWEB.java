@@ -1,5 +1,9 @@
-package osAsdrubal.interfaces;
+﻿package osAsdrubal.interfaces;
 
+/**
+ * Interface do componente ZombieWEB.
+ * @author Marco Aurélio
+ */
 public interface IZombieWEB {
 
 	//Métodos da criação de uma árvore:

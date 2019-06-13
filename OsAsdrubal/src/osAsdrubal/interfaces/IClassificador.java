@@ -1,11 +1,12 @@
-package osAsdrubal.interfaces;
+﻿package osAsdrubal.interfaces;
 
 import weka.core.Instances;
 import weka.core.Instance;
 
 /*  Interface de modelo de Machine Learning para classificacao
  *	Nessa Interface, temos metodos padrao de Machine Learning, utilizados para treinar o modelo sobre uma base de dados
- *  e predizer o resultado para alguns dados inseridos. 
+ *  e predizer o resultado para alguns dados inseridos.
+ * @author Alexandre 
  */
 
 public interface IClassificador {

@@ -1,4 +1,4 @@
-package osAsdrubal.componentes;
+﻿package osAsdrubal.componentes;
 import osAsdrubal.interfaces.*;
 
 import javax.swing.JFrame;
@@ -11,6 +11,10 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 
+/**
+ * Componente que permite criar janela com gráfico de pizza.
+ * @author Jhonatas.
+ */
 public class GraficoDePizza extends JFrame implements IGrafico{
  
 	private static final long serialVersionUID = 1L;

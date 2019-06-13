@@ -1,9 +1,10 @@
-package osAsdrubal.componentes;
+﻿package osAsdrubal.componentes;
 
 import osAsdrubal.interfaces.*;
 
 /**
  * Criador de fábricas de componentes da equipe osAsdrubal.
+ * @author Marco Aurélio
  */
 public class GeneralOsAsdrubal {
 	/**
